@@ -11,12 +11,12 @@ class App
     {
         static::$registry[$key] = $value;
     }
-    
+
     // App::get()
     public static function get($key)
     {
         if (! array_key_exists($key, static::$registry)) {
-            throw new Exception('No {$key} found.');
+            throw new Exception("No {$key} found.");
         }
         return static::$registry[$key] ;
     }

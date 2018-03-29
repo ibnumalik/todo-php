@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Core;
 
@@ -48,7 +48,7 @@ class Router
 
         if (! method_exists($controller, $action)) {
             throw new Exception(
-                '{$controller} does not respond to {$action} action.'
+                "{$controller} does not respond to {$action} action."
             );
         }
         return $controller->$action();

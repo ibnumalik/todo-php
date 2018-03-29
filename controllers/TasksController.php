@@ -1,23 +1,24 @@
-<?php 
+<?php
 
 namespace App\Controller;
 
 use App\Core\App;
+use QB;
 
 class TasksController
 {
     public function index()
     {
-        $tasks = App::get('database')->selectAll('tasks');
+        $tasks = QB::table('tasks')->select('*')->get();
         return view('tasks', compact('tasks'));
     }
 
     // TasksController@create
     public function create()
     {
-        App::get('database')->insert('tasks', [
+        QB::table('tasks')->insert([
             'description' => $_POST['name'],
-            'completed' => false
+            'completed' => 'false'
         ]);
 
         return redirect('tasks');
