@@ -5,6 +5,7 @@
         ]
     },
     "require": {
-        "usmanhalalit/pixie": "^2.0"
+        "usmanhalalit/pixie": "^2.0",
+        "pecee/simple-router": "^4.0"
     }
 }
