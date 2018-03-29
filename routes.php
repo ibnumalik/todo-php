@@ -1,8 +1,12 @@
 <?php
 
+use Pecee\SimpleRouter\SimpleRouter;
 
-$router->get('', 'PagesController@home');
-$router->get('about', 'PagesController@about');
-$router->get('contact', 'PagesController@contact');
-$router->get('tasks', 'TasksController@index');
-$router->post('tasks', 'TasksController@create');
+SimpleRouter::setDefaultNamespace('\App\Controller');
+
+SimpleRouter::get('/', 'PagesController@home');
+SimpleRouter::get('about', 'PagesController@about');
+SimpleRouter::get('contact', 'PagesController@contact');
+SimpleRouter::get('tasks', 'TasksController@index');
+SimpleRouter::post('tasks', 'TasksController@create');
+SimpleRouter::delete('tasks', 'TasksController@delete');
