@@ -6,8 +6,8 @@
             <?php foreach ($tasks as $task) :?>
                 <li>
                     <?php echo $task->description; ?>
-                    <form method="DELETE" action="/tasks">
-                        <input type="hidden" name="name" value="">
+                    <form method="POST" action="/tasks">
+                        <input type="hidden" name="id" value="<?php echo $task->id ?>">
                         <input type="hidden" name="_method" value="delete">
                         <input type="submit" value="Delete">
                     </form>

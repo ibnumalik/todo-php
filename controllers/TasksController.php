@@ -23,4 +23,11 @@ class TasksController
 
         return redirect('tasks');
     }
+
+    public function delete()
+    {
+        QB::table('tasks')->where('id', '=', $_POST['id'])->delete();
+
+        return redirect('tasks');
+    }
 }
