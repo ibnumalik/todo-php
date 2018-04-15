@@ -11,9 +11,15 @@ services:
     php:
         build:
             context: ./php-fpm
+        image: shaifulphp
         volumes:
             - .:/usr/share/nginx/html:ro
             - ./log.conf:/usr/local/etc/php-fpm.d/zz-log.conf
+    composer:
+        image: composer/composer:php7
+        command: install --ignore-platform-reqs
+        volumes:
+            - .:/app
     db:
         image: mariadb:latest
         ports:
