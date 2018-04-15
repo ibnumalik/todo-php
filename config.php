@@ -10,7 +10,7 @@ return [
     ],
     'pixie-db' => [
         'driver'    => 'mysql',
-        'host'      => 'localhost',
+        'host'      => 'db',
         'database'  => 'todo',
         'username'  => 'root',
         'password'  => '',

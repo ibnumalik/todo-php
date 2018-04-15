@@ -18,7 +18,7 @@ class TasksController
     {
         QB::table('tasks')->insert([
             'description' => $_POST['name'],
-            'completed' => 'false'
+            'completed' => 0
         ]);
 
         return redirect('tasks');
