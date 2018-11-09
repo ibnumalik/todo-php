@@ -4,7 +4,7 @@ use App\Core\App;
 
 App::bind('config', require 'config.php');
 
-new \Pixie\Connection('mysql', App::get('config')['pixie-db'], 'QB');
+new \Pixie\Connection('mysql', App::get('config')['database'], 'QB');
 
 function view($name, $val = [])
 {
