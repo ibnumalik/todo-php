@@ -6,7 +6,7 @@ return [
         'host'      => 'db',
         'database'  => 'todo',
         'username'  => 'root',
-        'password'  => 'root123',
+        'password'  => getenv('MYSQL_PASSWORD'),
         'charset'   => 'utf8',
         'collation' => 'utf8_unicode_ci',
         'prefix'    => '',
