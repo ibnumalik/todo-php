@@ -1,3 +1,5 @@
 vendor/
 .phpintel/
 .htaccess
+
+.env
