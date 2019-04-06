@@ -2,6 +2,14 @@
 
 use App\Core\App;
 
+try {
+    if (!file_exists(__DIR__.'/../.env')) {
+        throw new Exception("Please define .env file");
+    }
+} catch (Exception $e) {
+    die($e->getMessage());
+}
+
 $dotenv = Dotenv\Dotenv::create(__DIR__ . '/..');
 $dotenv->load();
 
