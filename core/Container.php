@@ -8,23 +8,19 @@ class Container implements ContainerContract
 {
     protected static $instance;
 
-    protected static $instances = [];
+    protected $instances = [];
 
-    protected static $registry = [];
-
-    // App::bind()
-    public static function bind($key, $value)
+    public function bind($key, $value)
     {
-        static::$registry[$key] = $value;
+        $this->instances[$key] = $value;
     }
 
-    // App::get()
-    public static function get($key)
+    public function get($key)
     {
-        if (! array_key_exists($key, static::$registry)) {
-            throw new Exception("No {$key} found.");
+        if (! array_key_exists($key, $this->instances)) {
+            throw new \Exception("No {$key} found.");
         }
-        return static::$registry[$key] ;
+        return $this->instances[$key] ;
     }
 
     public static function setInstance(ContainerContract $container = null)
