@@ -4,6 +4,7 @@ namespace Harmony\Foundation;
 
 use Dotenv\Dotenv;
 use Harmony\Container;
+use Pecee\SimpleRouter\SimpleRouter;
 
 class Application extends Container
 {
@@ -47,6 +48,7 @@ class Application extends Container
 
     public function bootstrap()
     {
+        // @TODO move each bootstrap to their own file
         try {
             if (!file_exists($this->basePath().'/.env')) {
                 throw new Exception("Please define .env file");
@@ -63,5 +65,9 @@ class Application extends Container
 
         // Start query builder and bind the class to QB
         new \Pixie\Connection('mysql', $this->get('config')['database'], 'QB');
+
+        // StartRouterConfig
+        require_once base_path().'/routes.php';
+        SimpleRouter::start();
     }
 }
