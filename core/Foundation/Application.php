@@ -67,7 +67,7 @@ class Application extends Container
         new \Pixie\Connection('mysql', $this->get('config')['database'], 'QB');
 
         // StartRouterConfig
-        require_once base_path().'/routes.php';
+        require_once base_path().'/routes/web.php';
         SimpleRouter::start();
     }
 }
