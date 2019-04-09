@@ -60,8 +60,8 @@ class Application extends Container
         $dotenv = \Dotenv\Dotenv::create($this->basePath());
         $dotenv->load();
 
-        // Load all config to the app
-        $this->bind('config', require $this->basePath().'/config.php');
+        // Load database to the app
+        $this->bind('config', require $this->basePath().'/config/database.php');
 
         // Start query builder and bind the class to QB
         new \Pixie\Connection('mysql', $this->get('config')['database'], 'QB');
