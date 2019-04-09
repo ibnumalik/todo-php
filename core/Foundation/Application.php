@@ -39,11 +39,17 @@ class Application extends Container
     protected function bindPathsInContainer()
     {
         $this->bind('path.base', $this->basePath());
+        $this->bind('path.public', $this->publicPath());
     }
 
     public function basePath($path = '')
     {
         return $this->basePath.($path ? DIRECTORY_SEPARATOR.$path : $path);
+    }
+
+    public function publicPath()
+    {
+        return $this->basePath.DIRECTORY_SEPARATOR.'public';
     }
 
     public function bootstrap()
